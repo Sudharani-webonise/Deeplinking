@@ -37,7 +37,7 @@ class GmailThread extends Thread {
                 logger.info("mail listener is in idle state");
                 ((IMAPFolder) folder).idle();
             } catch (Exception e) {
-                logger.error("Exception during onpening folder ", e);
+                logger.error("Exception during onpening folder {} ", e);
             }
 
         }
