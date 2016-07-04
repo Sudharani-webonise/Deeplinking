@@ -7,20 +7,20 @@ import org.slf4j.LoggerFactory;
 import javax.mail.Folder;
 
 /**
- * GmailThread is thread class which is used for create run kill the thread
+ * MailThread is thread class which is used for create run kill the thread
  */
-class GmailThread extends Thread {
-    private static final Logger logger = LoggerFactory.getLogger(GmailThread.class);
+class MailThread extends Thread {
+    private static final Logger logger = LoggerFactory.getLogger(MailThread.class);
     private final Folder folder;
     private volatile boolean running = true;
-    private GmailIncomingMailListener mailListener = new GmailIncomingMailListener();
+    private MailListener mailListener = new MailListener();
 
     /**
      * This parametrised constructor used to create thread
      *
      * @param folder
      */
-    public GmailThread(Folder folder) {
+    public MailThread(Folder folder) {
         super();
         this.folder = folder;
     }

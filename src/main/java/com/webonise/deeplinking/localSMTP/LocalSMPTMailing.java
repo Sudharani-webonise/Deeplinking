@@ -1,6 +1,5 @@
 package com.webonise.deeplinking.localSMTP;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,13 +17,13 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class SendAndReadLocalSMTPEmail {
+public class LocalSMPTMailing {
 
-    private static final Logger logger = LoggerFactory.getLogger(SendAndReadLocalSMTPEmail.class);
+    private static final Logger logger = LoggerFactory.getLogger(LocalSMPTMailing.class);
 
     public static void main(String[] args) throws AddressException, MessagingException, InterruptedException {
 
-        SendAndReadLocalSMTPEmail mail = new SendAndReadLocalSMTPEmail();
+        LocalSMPTMailing mail = new LocalSMPTMailing();
         String emailId = ""; // email id
         try {
             mail.sendMail(emailId);
@@ -49,7 +48,7 @@ public class SendAndReadLocalSMTPEmail {
         /***
          * TODO:
          * set up the server as per the requirement using mail severs which can read the mail from inbox
-         * then use the {@link}  GmailIncomingMailListener.class
+         * then use the {@link}  MailListener.class
          * to configure in Net magic domain mail server
          */
 

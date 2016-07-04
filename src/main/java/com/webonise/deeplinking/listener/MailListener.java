@@ -14,13 +14,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * GmailIncomingMailListener is includes the listener
+ * MailListener is includes the listener
  * is creates the session by setting up a properties and creates the thread
  * and makes the thread listen the inbox folder.
  *
  */
-public class GmailIncomingMailListener {
-    private static final Logger logger = LoggerFactory.getLogger(GmailIncomingMailListener.class);
+public class MailListener {
+    private static final Logger logger = LoggerFactory.getLogger(MailListener.class);
     public static final String IMAPS = "imaps";
     public static final String HOST = "imap.gmail.com";
     public static final String PORT = "993";
@@ -33,7 +33,7 @@ public class GmailIncomingMailListener {
 
     public static void main(String[] args) {
 
-        GmailIncomingMailListener mailListener = new GmailIncomingMailListener();
+        MailListener mailListener = new MailListener();
 
         Session session = mailListener.getSession();
         IMAPStore store = null;
@@ -65,12 +65,12 @@ public class GmailIncomingMailListener {
             });
 
             // creates the thread
-            GmailThread idleThread = new GmailThread(inbox);
+            MailThread idleThread = new MailThread(inbox);
 
             // thread is made demon because the demon thread always terminates when the jvm terminates
             idleThread.setDaemon(false);
 
-            // started the thread which invokes the run method in GmailThread class
+            // started the thread which invokes the run method in MailThread class
             idleThread.start();
 
             // made to waits for another thread to complete
