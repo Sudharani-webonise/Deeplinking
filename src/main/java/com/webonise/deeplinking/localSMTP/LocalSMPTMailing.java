@@ -29,12 +29,12 @@ public class LocalSMPTMailing {
             mail.sendMail(emailId);
             logger.info("mail sent to {}", emailId);
         } catch (Exception e) {
-            logger.error("Error in sending mail {} ", e);
+            logger.error("Error in sending mail : ", e);
         }
         try {
             mail.readMail();
         } catch (Exception e) {
-            logger.error("Error in reading mail {} ", e);
+            logger.error("Error in reading mail : ", e);
         }
     }
 
@@ -62,10 +62,10 @@ public class LocalSMPTMailing {
             String line = "";
             System.out.println(process.getInputStream());
             while ((line = reader.readLine()) != null) {
-                System.out.println(line);
+                logger.info(line);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error in reading mail : ", e);
         }
 
     }
@@ -84,7 +84,7 @@ public class LocalSMPTMailing {
         message.setSubject("local smtp testing");
         message.setContent("CONTENT : hey", "text/html");
 
-        Address[] replyTo = {new InternetAddress("uniquid@localnm.com")};
+        Address[] replyTo = {new InternetAddress("uniquid@localnm.com")}; // unique is is combination of #project_id, #customer_id and #user_id
         message.setReplyTo(replyTo);
         message.addRecipient(Message.RecipientType.TO, new InternetAddress(
                 recipientEmailId));

@@ -37,7 +37,7 @@ class MailThread extends Thread {
                 logger.info("mail listener is in idle state");
                 ((IMAPFolder) folder).idle();
             } catch (Exception e) {
-                logger.error("Exception during onpening folder {} ", e);
+                logger.error("Exception during opening folder : ", e);
             }
 
         }

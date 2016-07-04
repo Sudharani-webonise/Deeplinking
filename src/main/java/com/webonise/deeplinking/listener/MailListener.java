@@ -77,7 +77,7 @@ public class MailListener {
             idleThread.join();
 
         }catch (InterruptedException | MessagingException ex) {
-            logger.error("Thread is interrupted or error during messaging {}",ex);
+            logger.error("Thread is interrupted or error during messaging : ",ex);
         }  finally {
             logger.debug("Close the folder and IMAPStore");
             mailListener.closeFolderAndStore(inbox,store);
@@ -120,7 +120,7 @@ public class MailListener {
                 }
             }
         } catch (Exception ex) {
-            logger.error("ERROR: while closing inbox folder ow IMAP Store {}",ex);
+            logger.error("ERROR: while closing inbox folder ow IMAP Store : ",ex);
         }
 
     }
